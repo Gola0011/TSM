@@ -16,7 +16,7 @@ function richiedi(pagina, categoria) {
         success: function(risposta) {
             $.each(risposta.data, function (key, value) {
                 var colore = "panel-default";
-                switch (value.event_type[1]) {
+                switch (value.event_type[value.event_type.length - 1]) {
                 case "storia-cultura":
                     colore = "panel-danger";
                     break;
@@ -37,13 +37,15 @@ function richiedi(pagina, categoria) {
                     break;
                 }
                 var dataInizio = moment.unix(value.evcal_srow).locale('it').format('LLLL');
-                $("#evento").append('<div class="col-sm-6 col-md-3" >' +
+                $("#evento").append('<div class="col-sm-6 col-md-3">' +
                     '<div class="panel ' + colore + '">' +
-                    '   <div class="panel-heading text-center">' + value.event_type + '</div>' +
+                    '   <div class="panel-heading text-center">' + value.event_type[value.event_type.length - 1] + '</div>' +
                     '   <div class="panel-body">' +
                     '       <img src="' + value.post_thumbnail + '" class="img-responsive" alt="' + value.post_title + '">' +
-                    '       <h3>' + value.post_title + '</h3>' +
-                    '       <p>' + value.post_excerpt + '</p>' +
+                    '       <div style="height: 200px">' +
+                    '           <h3>' + value.post_title + '</h3>' +
+                    '           <p>' + value.post_excerpt + '</p>' +
+                    '       </div>' +
                     '       <footer class="text-muted"><small>' + '<i class="fa fa-calendar"></i> ' + dataInizio + '</small></footer>' +
                     '   </div>' +
                     '</div>');
