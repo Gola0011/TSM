@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title>inCaneva prova POST</title>
+</head>
+<body>
+	<button type="button" onClick="inviaAjax()">Invia richiesta</button>
+	<br />
+	<div>
+			<p id="richiesta"></p>
+	</div>
+
+	<script type="text/javascript">
+		var testo = "Testo";
+		var obj = "obj";
+		var stringa = "";
+		
+		// Funzione che richiede la stringa JSON
+		function inviaAjax() {
+			xmlhttp = new XMLHttpRequest();
+			
+			// Funzione eseguita quando viene ricevuta una risposta dal server
+			xmlhttp.onreadystatechange = function() {
+				if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				
+				// Salva la risposta nella variabile testo
+				testo = xmlhttp.responseText;
+				
+				// Esegue il parse del JSON e lo salva nella variabile obj
+				var obj = JSON.parse(testo);
+				
+				// Viene creata la stringa
+				/*var stringa = "Nome del blog: " + obj.data[0].blogname + 
+							  "<br />Titolo del post: " + obj.data[0].post_title + 
+							  "<br />Contenuto:<br />" + obj.data[0].post_content +
+							  '<br /><a href="' + obj.data[0].permalink + '">Link</a>';*/
+							  
+				var stringa = obj.data[0].blogname + "<br />" + 
+							  obj.data[1].blogname + "<br />" +
+							  obj.data[2].blogname + "<br />" +
+							  obj.data[3].blogname + "<br />" +
+							  obj.data[4].blogname + "<br />" +
+							  obj.data[5].blogname + "<br />" +
+							  obj.data[6].blogname + "<br />" +
+							  obj.data[7].blogname + "<br />" +
+							  obj.data[8].blogname + "<br />" +
+							  obj.data[9].blogname + "<br />";
+							  
+				// Copia la stringa nell'elemento HTML con id "richiesta"
+				document.getElementById("richiesta").innerHTML = stringa;
+				}
+			};
+			
+			var url = "http://incaneva.it/wp-admin/admin-ajax.php";
+			var parameters=  "blog=1,6,7,8&action=incaneva_events&limit=10";
+			
+			xmlhttp.open("POST", url, true);
+			xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xmlhttp.send(parameters);
+		}
+		
+	</script>
+</body>
+</html>
