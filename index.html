@@ -6,24 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="menu_sideslide.css">
 </head>
 <body>
+    <div class="menu-wrap">
+        <nav class="menu">
+            <div class="icon-list">
+                <a href="#" onclick="richiedi(1, '&filter=eventi')"><i class="fa fa-fw fa-calendar"></i><span>Eventi</span></a>
+                <a href="#" onclick="richiedi(1, '&filter=natura')"><i class="fa fa-fw fa-tree"></i><span>Natura</span></a>
+                <a href="#" onclick="richiedi(1, '&filter=storia-cultura')"><i class="fa fa-fw fa-university"></i><span>Storia-Cultura</span></a>
+                <a href="#" onclick="richiedi(1, '&filter=enogastronomia')"><i class="fa fa-fw fa-cutlery"></i><span>Enogastronomia</span></a>
+                <a href="#" onclick="richiedi(1, '&filter=sport')"><i class="fa fa-fw fa-futbol-o"></i><span>Sport</span></a>
+                <a href="#" onclick="richiedi(1, '&filter=passioni')"><i class="fa fa-fw fa-heart"></i><span>Passioni</span></a>
+            </div>
+        </nav>
+        <button class="close-button" id="close-button">Close Menu</button>
+    </div>
+    <button class="menu-button" id="open-button">Open Menu</button>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>inCaneva eventi</h1>
+                <h1 class="text-center">inCaneva eventi</h1>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <nav>
                     <ul class="pagination">
-                        <li><a href="#" onclick="richiedi(1)">1</a></li>
-                        <li><a href="#" onclick="richiedi(2)">2</a></li>
-                        <li><a href="#" onclick="richiedi(3)">3</a></li>
-                        <li><a href="#" onclick="richiedi(4)">4</a></li>
-                        <li><a href="#" onclick="richiedi(5)">5</a></li>
+                        <li><a href="#" onclick="richiedi(1, categoriaCorrente)">1</a></li>
+                        <li><a href="#" onclick="richiedi(2, categoriaCorrente)">2</a></li>
+                        <li><a href="#" onclick="richiedi(3, categoriaCorrente)">3</a></li>
+                        <li><a href="#" onclick="richiedi(4, categoriaCorrente)">4</a></li>
+                        <li><a href="#" onclick="richiedi(5, categoriaCorrente)">5</a></li>
                     </ul>
                 </nav>
             </div>
@@ -49,5 +63,7 @@
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="js/moment-with-locales.min.js"></script>
     <script src="js/javascript.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
