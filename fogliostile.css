@@ -87,7 +87,7 @@ body  {
 }
 
 .loader{
-    width: 10%;
+    width: 150px;
     height: 150px;
     top: 30%;
     left: 45%;
