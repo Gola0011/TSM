@@ -34,7 +34,7 @@ function richiedi(pagina, categoria) {
         dataType: "json",
         success: function(risposta) {
             $("#loader").removeClass("loader");
-
+			$(".contenitore").show();
             modalArray = risposta;
             $(".immagine1").attr("src", risposta.data[0].post_thumbnail);
             $(".titolo1").text(risposta.data[0].post_title);
