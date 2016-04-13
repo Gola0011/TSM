@@ -2,7 +2,86 @@ body  {
     background-image: url("wood.png");
     background-repeat: repeat;
 }
+
 .maps{
     width: 100%;
     overflow: hidden;
+}
+
+.pannello {
+    position: fixed;
+    background-color: white;
+    border-bottom: solid black 2px;
+    z-index: 20;
+    width: 100%;
+}
+
+.tastoMenu {
+    float: left;
+    font-size: 48px;
+    margin-top: 19px;
+    margin-left: 26px;
+    margin-right: 26px;
+}
+
+.logo {
+    margin: 8px;
+    max-height: 70px;
+}
+
+.contenitore {
+    position: absolute;
+    width: 100%;
+    margin-top: 88px;
+}
+
+.carousel {
+    margin: 30px;
+}
+
+.imgcarosello {
+    width: 100%;
+}
+
+.menu {
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    left: -300px;
+    background-color: #373a47;
+    color: ;
+    z-index: 21;
+    font-size: 20px;
+}
+
+.menu ul {list-style-type:none; /* Nessuno stile applicato alla lista */
+    margin: 2px;
+    padding: 2.5em 1.5em 0;
+}
+.menu li {
+    margin: 0px;
+    padding: 10px;
+    clear: both;
+}
+.menu a {
+    text-decoration:none;
+    color: #b8b7ad;
+    padding:3px;
+    display: block;
+}
+.menu a:hover {
+    color: #c94e50;
+}
+
+.tastoMenu {
+    color: black;
+}
+
+.closeButton {
+    float: right;
+    margin-right: 8px;
+}
+
+.manina {
+    cursor: pointer;
 }

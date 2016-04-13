@@ -1,8 +1,25 @@
 var categoriaCorrente = "";
+var modalArray = "";
 
 $(function() {
     richiedi(1, categoriaCorrente);
 });
+
+function apriModal(eventoCliccato) {
+    $("#myModalLabel").text(modalArray.data[eventoCliccato].post_title);
+    $("#imgmodal").attr("src", modalArray.data[eventoCliccato].post_thumbnail);
+    $("#testomodal").html(modalArray.data[eventoCliccato].post_content);
+    var dataEvento = moment.unix(modalArray.data[eventoCliccato].evcal_srow).locale('it').format('LLLL');
+    $("#footermodal").html(" " + dataEvento);
+}
+
+$('.tastoMenu').click(function () {
+    $('.menu').animate({"left":"0px"}, 500);
+});
+
+$('.menu a').click(function () {
+    $('.menu').animate({"left":"-300px"}, 500)
+})
 
 function richiedi(pagina, categoria) {
     $("#evento").empty();
@@ -14,6 +31,16 @@ function richiedi(pagina, categoria) {
         data: "blog=1,6,7,8&action=incaneva_events&limit=8&old=true&offset=" + offset + categoria,
         dataType: "json",
         success: function(risposta) {
+            modalArray = risposta;
+            $(".immagine1").attr("src", risposta.data[0].post_thumbnail);
+            $(".titolo1").text(risposta.data[0].post_title);
+            $(".descrizione1").text(risposta.data[0].post_excerpt);
+            $(".immagine2").attr("src", risposta.data[1].post_thumbnail);
+            $(".titolo2").text(risposta.data[1].post_title);
+            $(".descrizione2").text(risposta.data[1].post_excerpt);
+            $(".immagine3").attr("src", risposta.data[2].post_thumbnail);
+            $(".titolo3").text(risposta.data[2].post_title);
+            $(".descrizione3").text(risposta.data[2].post_excerpt);
             $.each(risposta.data, function (key, value) {
                 var colore = "panel-default";
                 switch (value.event_type[value.event_type.length - 1]) {
@@ -41,9 +68,9 @@ function richiedi(pagina, categoria) {
                     '<div class="panel ' + colore + '">' +
                     '   <div class="panel-heading text-center">' + value.event_type[value.event_type.length - 1] + '</div>' +
                     '   <div class="panel-body">' +
-                    '       <img src="' + value.post_thumbnail + '" class="img-responsive" alt="' + value.post_title + '">' +
+                    '       <img onclick="apriModal(' + key + ')" data-toggle="modal" data-target="#myModal" src="' + value.post_thumbnail + '" class="img-responsive  manina" alt="' + value.post_title + '">' +
                     '       <div style="height: 200px">' +
-                    '           <h3>' + value.post_title + '</h3>' +
+                    '           <h3 onclick="apriModal(' + key + ')" data-toggle="modal" data-target="#myModal" class="manina">' + value.post_title + '</h3>' +
                     '           <p>' + value.post_excerpt + '</p>' +
                     '       </div>' +
                     '       <footer class="text-muted"><small>' + '<i class="fa fa-calendar"></i> ' + dataInizio + '</small></footer>' +
