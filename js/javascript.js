@@ -22,6 +22,8 @@ $('.menu a').click(function () {
 })
 
 function richiedi(pagina, categoria) {
+    $("#loader").addClass("loader");
+
     $("#evento").empty();
     var offset = 8 * (pagina - 1);
     categoriaCorrente = categoria;
@@ -31,6 +33,8 @@ function richiedi(pagina, categoria) {
         data: "blog=1,6,7,8&action=incaneva_events&limit=8&old=true&offset=" + offset + categoria,
         dataType: "json",
         success: function(risposta) {
+            $("#loader").removeClass("loader");
+
             modalArray = risposta;
             $(".immagine1").attr("src", risposta.data[0].post_thumbnail);
             $(".titolo1").text(risposta.data[0].post_title);
