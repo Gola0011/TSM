@@ -4,8 +4,7 @@ body  {
 }
 
 .maps{
-    width: 100%;
-    overflow: hidden;
+    max-width: 100%;
 }
 
 .pannello {
