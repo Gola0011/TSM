@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <title>inCaneva eventi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="favicon.png" type="image/png" />
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="fogliostile.css">
 </head>
 <body>
+
+    <div id="loader">
+    </div>
+
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -70,7 +75,7 @@
     <div class="pannello">
         <!--<button class="menu-button" id="open-button">Open Menu</button>-->
         <a href="#"><i class="fa fa-bars tastoMenu" aria-hidden="true"></i></a>
-        <img class="logo" src="http://incaneva.it/wp-content/uploads/2013/05/logo_inCaneva.png" alt="inCaneva eventi" />
+        <img class="logo" src="logo_inCaneva.png" alt="inCaneva eventi" />
     </div>
     <div class="contenitore">
         <div class="container">
@@ -124,9 +129,14 @@
                 <div class="col-md-1"></div>
             </div>
 
+
+
             <div class="row" id="evento"></div>
             <div class="row">
                 <div class="col-md-12">
+
+
+
                     <nav>
                         <ul class="pagination">
                             <li><a href="#" onclick="richiedi(1)">1</a></li>

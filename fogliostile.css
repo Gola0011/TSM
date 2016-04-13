@@ -32,6 +32,7 @@ body  {
     position: absolute;
     width: 100%;
     margin-top: 88px;
+	display: none;
 }
 
 .carousel {
@@ -83,4 +84,15 @@ body  {
 
 .manina {
     cursor: pointer;
+}
+
+.loader{
+    width: 150px;
+    height: 150px;
+    top: 30%;
+    left: 45%;
+    background-image: url("rolling.gif") ;
+    background-repeat: no-repeat;
+    position: fixed;
+    z-index: 2;
 }
